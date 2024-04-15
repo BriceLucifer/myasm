@@ -1,0 +1,52 @@
+     1                                  section .bss
+     2                                  
+     3                                  section .data
+     4 00000000 4B414E4741524F4F0A          kangroo: db "KANGAROO",10
+     5                                      kangroolen: equ $-kangroo
+     6 00000009 6265666F72653A              before: db "before:"
+     7                                      beforelen: equ $-before
+     8 00000010 61667465723A                after: db "after:"
+     9                                      afterlen: equ $-after
+    10                                  
+    11                                  section .text
+    12                                  
+    13                                  global _start
+    14                                  
+    15                                  _start:
+    16                                      ;写入输出 
+    17 00000000 B804000000                  mov eax,4
+    18 00000005 BB01000000                  mov ebx,1
+    19 0000000A B9[09000000]                mov ecx,before
+    20 0000000F BA07000000                  mov edx,beforelen
+    21 00000014 CD80                        int 80H
+    22                                  
+    23 00000016 B804000000                  mov eax,4
+    24 0000001B BB01000000                  mov ebx,1
+    25 00000020 B9[00000000]                mov ecx,kangroo
+    26 00000025 BA09000000                  mov edx,kangroolen
+    27 0000002A CD80                        int 80H
+    28                                  
+    29                                      ;转换大转小
+    30 0000002C BB[00000000]                mov ebx,kangroo
+    31 00000031 B908000000                  mov ecx,kangroolen-1
+    32                                      convert:
+    33 00000036 67800320                        add byte [ebx],32
+    34 0000003A FFC3                            inc ebx                 ;ebx其实是一个偏移指针 inc ebx 向右移动
+    35 0000003C E2F8                            loop convert            ;
+    36                                      
+    37                                      ;输出转换
+    38 0000003E B804000000                  mov eax,4
+    39 00000043 BB01000000                  mov ebx,1
+    40 00000048 B9[10000000]                mov ecx,after
+    41 0000004D BA06000000                  mov edx,afterlen
+    42 00000052 CD80                        int 80H
+    43                                  
+    44 00000054 B804000000                  mov eax,4
+    45 00000059 BB01000000                  mov ebx,1
+    46 0000005E B9[00000000]                mov ecx,kangroo
+    47 00000063 BA09000000                  mov edx,kangroolen
+    48                                  
+    49 00000068 CD80                        int 80H
+    50 0000006A B801000000                  mov eax,1       ;设置退出
+    51 0000006F BB00000000                  mov ebx,0       ;返回0
+    52 00000074 CD80                        int 80H
