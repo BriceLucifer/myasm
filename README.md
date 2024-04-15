@@ -12,12 +12,12 @@
 ```[32位]编译：nasm -f elf -g -F stabs xxx.asm -o xxx.o -l xxx.lst```  
 ```[64位]编译：nasm -f elf64 -g -F stabs xxx.asm -o xxx.o xxx.lst```  
     
-参数解析：  
--f 文件类型 elf(32位) elf64(64位)  
--g 添加调试信息  
--F stabs 以stabs方式添加调试  
--o output输出  
--l lst文件类型输出
+- 参数解析：  
+    - -f 文件类型 elf(32位) elf64(64-位)  
+    - -g 添加调试信息  
+    - -F stabs 以stabs方式添加调试  
+    - -o output输出  
+    - -l lst文件类型输出
 
 ### 2.然后链接.o 文件使用linux 自带的ld  
 
