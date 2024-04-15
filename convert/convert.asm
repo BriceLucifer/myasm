@@ -32,7 +32,7 @@ _start:
     convert:
         add byte [ebx],32
         inc ebx                 ;ebx其实是一个偏移指针 inc ebx 向右移动
-        loop convert            ;
+        loop convert            ;循环 暗中执行:dec ecx 当ecx == 0时 跳出
     
     ;输出转换
     mov eax,4
