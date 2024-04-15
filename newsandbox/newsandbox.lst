@@ -1,0 +1,14 @@
+     1                                  section .data       ;定义数据
+     2                                  section .bss        ;未初始化数据
+     3                                  
+     4                                  section .text       ;文字段
+     5                                  
+     6                                  global _start       ;开头
+     7                                  
+     8                                  _start:             ;代码开始编写
+     9                                      
+    10 00000000 90                          nop 
+    11                                      ; 实验内容可以放在 nop之间
+    12                                      
+    13                                      ; 实验内容可以放在 nop之间
+    14 00000001 90                          nop
