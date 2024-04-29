@@ -65,3 +65,4 @@ gcc -c xxx.s -o xxx.o
 # 4.链接 生成可执行文件
 gcc xxx.o -o xxx
 ```
+后序会继续更新~
