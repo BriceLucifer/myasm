@@ -5,9 +5,9 @@
      5                                 
      6                                 
      7                                 [segment .text]
-     8                                 [global _start]
+     8                                 [global main]
      9                                 
-    10                                 _start:
+    10                                 main:
     11 00000000 B801000000              mov eax, 1
     12 00000005 BB05000000              mov ebx, 5
     13 0000000A CD80                    int 0x80
