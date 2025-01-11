@@ -1,6 +1,6 @@
-hello4: hello4.o
-	gcc hello4.o -o hello4 -no-pie
-hello4.o: hello4.asm
-	nasm -f elf64 -g -F dwarf hello4.asm -l hello4.lst
+alive2: alive2.o
+	gcc alive2.o -o alive2 -no-pie
+alive2.o: alive2.asm
+	nasm -f elf64 -g -F dwarf alive2.asm -l alive2.lst
 clean:
-	rm -rf hello4.o hello4 hello4.lst
+	rm -rf alive2.o alive2 alive2.lst
