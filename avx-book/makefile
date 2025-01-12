@@ -1,6 +1,6 @@
-alive2: alive2.o
-	gcc alive2.o -o alive2 -no-pie
-alive2.o: alive2.asm
-	nasm -f elf64 -g -F dwarf alive2.asm -l alive2.lst
+move: move.o
+	gcc move.o -o move -no-pie
+move.o: move.asm
+	nasm -f elf64 -g -F dwarf move.asm -l move.lst
 clean:
-	rm -rf alive2.o alive2 alive2.lst
+	rm -rf move.o move move.lst
