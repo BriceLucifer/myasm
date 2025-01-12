@@ -1,6 +1,6 @@
-move: move.o
-	gcc move.o -o move -no-pie
-move.o: move.asm
-	nasm -f elf64 -g -F dwarf move.asm -l move.lst
+jumploop: jumploop.o
+	gcc jumploop.o -o jumploop -no-pie
+jumploop.o: jumploop.asm
+	nasm -f elf64 -g -F dwarf jumploop.asm -l jumploop.lst
 clean:
-	rm -rf move.o move move.lst
+	rm -rf jumploop.o jumploop jumploop.lst
