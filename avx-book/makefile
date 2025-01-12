@@ -1,6 +1,6 @@
-jumploop: jumploop.o
-	gcc jumploop.o -o jumploop -no-pie
-jumploop.o: jumploop.asm
-	nasm -f elf64 -g -F dwarf jumploop.asm -l jumploop.lst
+betterloop: betterloop.o
+	gcc betterloop.o -o betterloop -no-pie
+betterloop.o: betterloop.asm
+	nasm -f elf64 -g -F dwarf betterloop.asm -l betterloop.lst
 clean:
-	rm -rf jumploop.o jumploop jumploop.lst
+	rm -rf betterloop.o betterloop betterloop.lst
