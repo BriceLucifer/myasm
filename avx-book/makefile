@@ -1,6 +1,6 @@
-betterloop: betterloop.o
-	gcc betterloop.o -o betterloop -no-pie
-betterloop.o: betterloop.asm
-	nasm -f elf64 -g -F dwarf betterloop.asm -l betterloop.lst
+memory: memory.o
+	gcc memory.o -o memory -no-pie
+memory.o: memory.asm
+	nasm -f elf64 -g -F dwarf memory.asm -l memory.lst
 clean:
-	rm -rf betterloop.o betterloop betterloop.lst
+	rm -rf memory.o memory memory.lst
