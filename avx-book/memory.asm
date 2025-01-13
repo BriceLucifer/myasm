@@ -14,7 +14,7 @@ section .bss
 	bvar resb 1 
 	dvar resd 1
 	wvar resw 10 
-	qvar resq 3 
+	qvar resq 30000 
 section .text 
 	global main
 

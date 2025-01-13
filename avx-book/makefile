@@ -1,6 +1,6 @@
-memory: memory.o
-	gcc memory.o -o memory -no-pie
-memory.o: memory.asm
-	nasm -f elf64 -g -F dwarf memory.asm -l memory.lst
+icalc: icalc.o
+	gcc icalc.o -o icalc -no-pie
+icalc.o: icalc.asm
+	nasm -f elf64 -g -F dwarf icalc.asm -l icalc.lst
 clean:
-	rm -rf memory.o memory memory.lst
+	rm -rf icalc.o icalc icalc.lst
