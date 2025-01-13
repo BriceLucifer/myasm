@@ -1,0 +1,58 @@
+     1                                  ; stack.asm
+     2                                  extern printf
+     3                                  section .data
+     4 00000000 414243444500            	strng db "ABCDE", 0
+     5                                  	strnglen equ $ - strng-1
+     6 00000006 546865206F72696769-     	fmt1 db "The original string: %s", 10, 0
+     6 0000000F 6E616C20737472696E-
+     6 00000018 673A2025730A00     
+     7 0000001F 546865207265766572-     	fmt2 db "The reversed string: %s", 10, 0
+     7 00000028 73656420737472696E-
+     7 00000031 673A2025730A00     
+     8                                  section .bss
+     9                                  section .text
+    10                                  	global main
+    11                                  main:
+    12 00000000 55                      push rbp
+    13 00000001 4889E5                  mov rbp, rsp
+    14                                  	; 打印原始数组
+    15 00000004 48BF-                   	mov rdi, fmt1 
+    15 00000006 [0600000000000000] 
+    16 0000000E 48BE-                   	mov rsi, strng 
+    16 00000010 [0000000000000000] 
+    17 00000018 B800000000              	mov rax, 0
+    18 0000001D E8(00000000)            	call printf
+    19                                  	; 将字符串逐个压入
+    20 00000022 4831C0                  	xor rax, rax 
+    21 00000025 48BB-                   	mov rbx, strng
+    21 00000027 [0000000000000000] 
+    22 0000002F B905000000              	mov rcx, strnglen
+    23 00000034 41BC00000000            	mov r12, 0
+    24                                  	pushloop:
+    25 0000003A 428A0423                		mov al, byte [rbx+r12]; 把字符移动到rax
+    26 0000003E 50                      		push rax
+    27 0000003F 49FFC4                  		inc r12 
+    28 00000042 E2F6                    		loop pushloop ; loop的时候rcx会递减
+    29                                  	; 反转
+    30 00000044 48BB-                   	mov rbx, strng ;strng地址放入rbx
+    30 00000046 [0000000000000000] 
+    31 0000004E B905000000              	mov rcx, strnglen
+    32 00000053 41BC00000000            	mov r12, 0 
+    33                                  	poploop:
+    34 00000059 58                      		pop rax
+    35 0000005A 42880423                		mov byte [rbx+r12], al
+    36 0000005E 49FFC4                  		inc r12 
+    37 00000061 E2F6                    		loop poploop 	
+    38 00000063 42C6042300              	mov byte [rbx+r12], 0 ; 使用0终止符
+    39                                  
+    40                                  	; 打印反转
+    41 00000068 48BF-                   	mov rdi, fmt2 
+    41 0000006A [1F00000000000000] 
+    42 00000072 48BE-                   	mov rsi, strng 
+    42 00000074 [0000000000000000] 
+    43 0000007C B800000000              	mov rax, 0
+    44 00000081 E8(00000000)            	call printf
+    45                                  
+    46 00000086 4889EC                  	mov rsp, rbp
+    47 00000089 5D                      	pop rbp
+    48 0000008A C3                      	ret

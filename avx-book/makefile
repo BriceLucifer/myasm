@@ -1,6 +1,6 @@
-icalc: icalc.o
-	gcc icalc.o -o icalc -no-pie
-icalc.o: icalc.asm
-	nasm -f elf64 -g -F dwarf icalc.asm -l icalc.lst
+stack: stack.o
+	gcc stack.o -o stack -no-pie
+stack.o: stack.asm
+	nasm -f elf64 -g -F dwarf stack.asm -l stack.lst
 clean:
-	rm -rf icalc.o icalc icalc.lst
+	rm -rf stack.o stack stack.lst
