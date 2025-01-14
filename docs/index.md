@@ -24,7 +24,8 @@ features:
   - icon: 💻
     title: Computer Architecture
     details: A way of learning computer architecture
-  - icon: ⌨️
+  - icon: 
+      src: /nasm.png
     title: NASM
     details: We will be using NASM
 ---
