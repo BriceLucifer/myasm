@@ -25,7 +25,7 @@ nasm -f elf64 -g -F stabs xxx.asm -o xxx.o xxx.lst
 ```  
 >[!TIP]    
 > - 参数解析：  
->     - -f 文件类型 elf(32位) elf64(64-位)  
+>     - -f 文件类型 elf(32位) elf64(64位)  
 >     - -g 添加调试信息  
 >     - -F stabs 以stabs方式添加调试  
 >     - -o output输出  
