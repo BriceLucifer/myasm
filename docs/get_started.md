@@ -35,11 +35,13 @@ nasm -f elf64 -g -F stabs xxx.asm -o xxx.o xxx.lst
 
 使用方式：   
 ```shell
-[32位] ld -m elf xxx.o -o xxx
+#[32位] 
+ld -m elf xxx.o -o xxx
 ```  
 
 ```shell
-[64位] ld -m elf_x86_64 xxx.o -o xxx
+#[64位] 
+ld -m elf_x86_64 xxx.o -o xxx
 ```
 
 ### 3.推荐使用Makefile编译
